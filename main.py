@@ -6,12 +6,11 @@ pygame.init()
 SIZE = WIDTH, HEIGHT = 640, 480
 
 screen = pygame.display.set_mode(SIZE)
+pygame.display.set_caption('Jogo da Forca')
 
 font = pygame.freetype.SysFont('Arial', 12, bold=True, italic=False)
 
 running = False
-
-personagem = ['cabeca', 'corpo', 'braco_esquerdo', 'braco_direito', 'perna_esquerda', 'perna_direita']
 
 with open ('palavras.txt', 'r', encoding='UTF-8') as f:
     palavras = f.read().splitlines()
