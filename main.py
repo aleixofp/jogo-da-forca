@@ -61,9 +61,13 @@ def render():
     # preenche a tela com a cor preta
     screen.fill((255, 255, 255))
 
-    # desenha as letras que o usuário acertou
+    # percorre as letras da palavra
     for i in range(len(palavra)):
+
+        # desenha uma 'linha' para cada letra, para servir como baser
         pygame.draw.line(screen, (0, 0, 255), (40+(i*32)+16, (HEIGHT / 2)), (70+(i*32)+16, (HEIGHT / 2)), width=4)
+
+        # se a palavra estiver marcada como 'mostrando', renderizar na tela, de acordo com a posição pré definida na linha 42
         if letras_palavra[i]['mostrando']:
             text_surface, rect = font.render(palavra[i].upper(), fgcolor=(234, 100, 5), bgcolor=None, rotation=0, size=32)
             screen.blit(text_surface, letras_palavra[i]['pos'])
@@ -156,7 +160,7 @@ def handle_events():
                             for il in letras_palavra:
                                 if il['letra'] == k.lower():
                                     il['mostrando'] = True
-                                    
+
                         # se não tiver, tentativas diminui
                         else:
                             tentativas = tentativas - 1
